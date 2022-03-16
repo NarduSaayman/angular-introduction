@@ -1,1 +1,15 @@
-<p>evaluated works!</p>
+<h1>Your clothes are <span [style.color]="color">{{color}}</span></h1>
+<button (click)="changeColor()">Your clothes are {{color === 'black' ? 'red' : 'black'}}!</button>
+<br /><br />
+<img [src]="'../../../assets/img/' + color + 'clothes.jpeg'" />
+<br />
+<h1>Which is selected?</h1>
+
+<div class="flex">
+  <div class="btn" [class.selected]="selected === 0" (click)="selected = 0">Click Me</div>
+  <div class="btn" [class.selected]="selected === 1" (click)="selected = 1">Click Me</div>
+  <div class="btn" [class.selected]="selected === 2" (click)="selected = 2">Click Me</div>
+</div>
+
+<h3>Did you realise that @Input() attributes are evaluated?</h3>
+<h4>e.g. &lt;app-communication-child-io <span style="color: darkgreen;">[name]="lecturerOfTheDay.name"</span> <span style="color: darkred;">[canBuyDrinks]="lecturerOfTheDay.age >= 18"</span>&gt;</h4>

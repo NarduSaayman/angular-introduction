@@ -7,9 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EvaluatedComponent implements OnInit {
 
+  color = 'black';
+  selected = 0;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  changeColor() {
+    if (this.color === 'black') {
+      this.color = 'red';
+    } else {
+      this.color = 'black';
+    }
   }
 
 }

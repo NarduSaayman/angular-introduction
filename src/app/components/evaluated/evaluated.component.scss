@@ -1,0 +1,28 @@
+h1 {
+    color: rgb(78, 78, 78);
+}
+
+.flex {
+    display: flex;
+    gap: 1rem;
+
+    .btn {
+        background-color: lightgray;
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        cursor: pointer;
+
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            color: darkcyan;
+            background-color: aquamarine;
+        }
+    }
+    
+    .selected {
+        color: green;
+        background-color: aqua;
+        font-weight: bold;
+    }
+}

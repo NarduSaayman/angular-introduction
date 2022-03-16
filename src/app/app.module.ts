@@ -8,9 +8,9 @@ import { CommunicationComponent } from './components/communication/communication
 import { EvaluatedComponent } from './components/evaluated/evaluated.component';
 import { ConditionalComponent } from './components/conditional/conditional.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
-import { CommunicationChildIoComponent } from './components/communication-child-io/communication-child-io.component';
-import { CommunicationChildBiabComponent } from './components/communication-child-biab/communication-child-biab.component';
-import { CommunicationChildServiceComponent } from './components/communication-child-service/communication-child-service.component';
+import { CommunicationChildIoComponent } from './components/communication/communication-child-io/communication-child-io.component';
+import { CommunicationChildBiabComponent } from './components/communication/communication-child-biab/communication-child-biab.component';
+import { CommunicationChildServiceComponent } from './components/communication/communication-child-service/communication-child-service.component';
 
 @NgModule({
   declarations: [
