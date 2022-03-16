@@ -1,0 +1,4 @@
+<!-- Worky -->
+<input type="text" [value]="fieldToUpdate" (input)="updateValue($event.target.value)">
+<!-- No worky -->
+<input type="text" [(ngModel)]="fieldToUpdate" />

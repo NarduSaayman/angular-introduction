@@ -1,10 +1,22 @@
 <!-- Navbar -->
 <nav class="navbar" role="banner">
   <ul>
-    <li><a routerLink="/communication" routerLinkActive="active">Inter-Component Communication</a></li>
+    <li><a routerLink="/communication" routerLinkActive="active">Component Communication</a></li>
     <li><a routerLink="/evaluated" routerLinkActive="active">Evaluated Attributes</a></li>
+    <li><a routerLink="/conditional" routerLinkActive="active">Conditional Rendering</a></li>
+    <li><a routerLink="/services" routerLinkActive="active">Services</a></li>
+    <li><a routerLink="/pipes" routerLinkActive="active">Pipes</a></li>
+    <li><a routerLink="/async" routerLinkActive="active">Async</a></li>
+    <li><a routerLink="/routing" routerLinkActive="active">Routing</a></li>
+    <li><a routerLink="/forms" routerLinkActive="active">Forms</a></li>
+    <li><a routerLink="/ngrx" routerLinkActive="active">NgRx Store</a></li>
+    <li><a routerLink="/testing" routerLinkActive="active">Testing</a></li>
+    <li><a routerLink="/animation" routerLinkActive="active">Animation</a></li>
+    <li><a routerLink="/pwa" routerLinkActive="active">PWA</a></li>
   </ul>
 </nav>
 
 <!-- Everything else -->
-<router-outlet></router-outlet>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

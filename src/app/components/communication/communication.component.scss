@@ -1,0 +1,28 @@
+p span {
+    background-color: lightgray;
+    font-weight: bold;
+    padding: 0.5rem;
+    border-radius: 4px;
+    line-height: 2rem;
+}
+
+.box {
+    background-color: lightgray;
+    border-radius: 16px;
+    padding: 2rem;
+
+    h4 {
+        margin-top: 0;
+        margin-bottom: 1rem;
+    }
+
+    p {
+        white-space: pre;
+    }
+
+    .flex {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+}

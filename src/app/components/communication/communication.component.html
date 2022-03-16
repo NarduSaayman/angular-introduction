@@ -1,1 +1,60 @@
-<p>communication works!</p>
+<h1>What is data binding and ngModel?</h1>
+<h2>Data binding can be single or bi-directional</h2>
+<img style="max-width: 400px;" src="../../../assets/img/twodir.jpeg" />
+
+<p>
+  The binding punctuation of <span>[]</span>, <span>()</span>, <span>[()]</span>, and the prefix specify the direction of data flow.<br />
+  <br />
+  Use <span>[]</span> to bind from source to view.<br />
+  Use <span>()</span> to bind from view to source.<br />
+  Use <span>[()]</span> to bind in a two way sequence of view to source to view.
+</p>
+
+<h2>What is event handling?</h2>
+<p style="font-size: 2rem; margin: 0">&lt;button <strong>(click)="doSomething()"</strong>&gt;Click Me&lt;/button&gt;</p>
+<p style="font-size: 2rem; margin: 0">This is ☝️</p>
+<h2>What is ngModel?</h2>
+<p style="font-size: 2rem; margin: 0">&lt;input <strong>[(ngModel)]="localVariableName"</strong>/&gt;</p>
+<p style="font-size: 2rem; margin: 0">This is ☝️ - it binds a local variable to the element value</p>
+<h3>Here's the table</h3>
+<div style="display: flex; flex-direction: column;">
+  <a href="https://angular.io/guide/binding-syntax#types-of-data-binding">RTFM</a>
+  <img style="margin-top: 2rem; max-width: 700px;" src="../../../assets/img/databinding.png" />
+</div>
+
+<h1>@Input() and @Output()</h1>
+<div class="box">
+  <h4>Let's chat kids! <button (click)="startOver()">Start Over</button></h4>
+  <p>{{chat}}</p>
+  <div class="flex">
+    <app-communication-child-io [response]="response" (noticeMe)="addNaggingChildMessage($event)">
+    </app-communication-child-io>
+    <app-communication-child-io [response]="response" (noticeMe)="addNaggingChildMessage($event)" name="Ashir">
+    </app-communication-child-io>
+    <app-communication-child-io [response]="response" (noticeMe)="addNaggingChildMessage($event)" name="Ivan">
+    </app-communication-child-io>
+    <app-communication-child-io [response]="response" (noticeMe)="addNaggingChildMessage($event)" name="Nardus">
+    </app-communication-child-io>
+    <app-communication-child-io [response]="response" (noticeMe)="addNaggingChildMessage($event)" name="Omega">
+    </app-communication-child-io>
+    <app-communication-child-io [response]="response" (noticeMe)="addNaggingChildMessage($event)" name="Ruan">
+    </app-communication-child-io>
+    <app-communication-child-io [response]="response" (noticeMe)="addNaggingChildMessage($event)" name="Ziv">
+    </app-communication-child-io>
+  </div>
+</div>
+<h1>Banana in a box [()] (two-way data binding)</h1>
+<div class="box">
+  <a href="https://angular.io/guide/two-way-binding#how-two-way-binding-works">RTFM</a>
+  <h4>Name: {{user.name}}</h4>
+  <h4>Surname: {{user.surname}}</h4>
+  <app-communication-child-biab [(fieldToUpdate)]="user.name"></app-communication-child-biab><br/>
+  <app-communication-child-biab [(fieldToUpdate)]="user.surname"></app-communication-child-biab>
+</div>
+
+<h1>Shared Varaible - Service</h1>
+<div class="box">
+  <h3>Shared Actor: {{sharedService.actor}}</h3>
+  <app-communication-child-service></app-communication-child-service>
+</div>
+<h1>Other options include <a routerLink="/ngrx">State Management</a></h1>
