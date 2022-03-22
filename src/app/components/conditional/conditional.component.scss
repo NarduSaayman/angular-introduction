@@ -1,0 +1,12 @@
+.grad {
+    background-color: hsl(0, 0%, 90%);
+    margin: 0.2rem 0;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+
+    transition: background-color 1s ease;
+    &:hover {
+        background-color: hsl(0, 0%, 80%);
+    }
+}

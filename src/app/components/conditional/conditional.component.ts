@@ -7,6 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConditionalComponent implements OnInit {
 
+  grads = [
+    'Ashir',
+    'Ivan',
+    'Nardus',
+    'Omega',
+    'Ruan',
+    'Ziv',
+  ];
+
+  showTheGrads = true;
+
+  selectedGrad = this.grads[0];
+
   constructor() { }
 
   ngOnInit() {

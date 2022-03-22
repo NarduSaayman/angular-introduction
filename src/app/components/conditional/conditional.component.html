@@ -1,1 +1,33 @@
-<p>conditional works!</p>
+<h1>Conditional Rendering</h1>
+
+<button (click)="showTheGrads = !showTheGrads">{{showTheGrads ? 'Hide': 'Show'}} the grads</button>
+
+<ng-container *ngIf="showTheGrads">
+    <div 
+        *ngFor="let grad of grads" 
+        (click)="selectedGrad = grad" 
+        class="grad">
+        {{grad}}
+    </div>
+</ng-container>
+
+<div [ngSwitch]="selectedGrad">
+    <ng-container *ngSwitchCase="'Ashir'">
+        <h3>Hi, my name is Ashir</h3>
+    </ng-container>
+    <ng-container *ngSwitchCase="'Ivan'">
+        <h3>Hi, my name is Ivan</h3>
+    </ng-container>
+    <ng-container *ngSwitchCase="'Nardus'">
+        <h3>Hi, my name is Nardus</h3>
+    </ng-container>
+    <ng-container *ngSwitchCase="'Omega'">
+        <h3>Hi, my name is Omega</h3>
+    </ng-container>
+    <ng-container *ngSwitchCase="'Ruan'">
+        <h3>Hi, my name is Ruan</h3>
+    </ng-container>
+    <ng-container *ngSwitchCase="'Ziv'">
+        <h3>Hi, my name is Ziv</h3>
+    </ng-container>
+</div>
