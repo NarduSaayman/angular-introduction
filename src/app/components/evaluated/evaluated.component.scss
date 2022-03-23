@@ -2,6 +2,10 @@ h1 {
     color: rgb(78, 78, 78);
 }
 
+img {
+    margin: 2rem 0 1rem;
+}
+
 .flex {
     display: flex;
     gap: 1rem;
@@ -24,5 +28,10 @@ h1 {
         color: green;
         background-color: aqua;
         font-weight: bold;
+    }
+
+    .unselected {
+        color: whitesmoke;
+        background-color: hsl(60, 100%, 25%);
     }
 }

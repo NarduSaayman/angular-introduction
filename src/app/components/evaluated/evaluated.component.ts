@@ -8,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class EvaluatedComponent implements OnInit {
 
   color = 'black';
-  selected = 0;
+  selectedIndex = 0;
+  type = 'text';
 
   constructor() { }
 
