@@ -8,7 +8,16 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class CommunicationChildIoComponent implements OnInit {
 
   @Input() name: string = 'Mark';
-  @Input() response: string;
+  
+  response: string = '';
+  @Input() set responseInput(resp: string) {
+    if (resp.length > 0) {
+      this.response = resp;
+    } else {
+      this.response = 'Unknown';
+    }
+  }
+  
   @Output() noticeMe = new EventEmitter<string>();
 
   constructor() { }

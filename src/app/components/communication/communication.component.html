@@ -27,22 +27,25 @@
   <h4>Let's chat kids! <button (click)="startOver()">Start Over</button></h4>
   <p>{{chat}}</p>
   <div class="flex">
-    <app-communication-child-io [response]="response" (noticeMe)="addNaggingChildMessage($event)">
+    <app-communication-child-io [responseInput]="response" (noticeMe)="addNaggingChildMessage($event)">
     </app-communication-child-io>
-    <app-communication-child-io [response]="response" (noticeMe)="addNaggingChildMessage($event)" name="Ashir">
+    <app-communication-child-io [responseInput]="response" (noticeMe)="addNaggingChildMessage($event)" name="Ashir">
     </app-communication-child-io>
-    <app-communication-child-io [response]="response" (noticeMe)="addNaggingChildMessage($event)" name="Ivan">
+    <app-communication-child-io [responseInput]="response" (noticeMe)="addNaggingChildMessage($event)" name="Ivan">
     </app-communication-child-io>
-    <app-communication-child-io [response]="response" (noticeMe)="addNaggingChildMessage($event)" name="Nardus">
+    <app-communication-child-io [responseInput]="response" (noticeMe)="addNaggingChildMessage($event)" name="Nardus">
     </app-communication-child-io>
-    <app-communication-child-io [response]="response" (noticeMe)="addNaggingChildMessage($event)" name="Omega">
+    <app-communication-child-io [responseInput]="response" (noticeMe)="addNaggingChildMessage($event)" name="Omega">
     </app-communication-child-io>
-    <app-communication-child-io [response]="response" (noticeMe)="addNaggingChildMessage($event)" name="Ruan">
+    <app-communication-child-io [responseInput]="response" (noticeMe)="addNaggingChildMessage($event)" name="Ruan">
     </app-communication-child-io>
-    <app-communication-child-io [response]="response" (noticeMe)="addNaggingChildMessage($event)" name="Ziv">
+    <app-communication-child-io [responseInput]="response" (noticeMe)="addNaggingChildMessage($event)" name="Ziv">
+    </app-communication-child-io>
+    <app-communication-child-io [responseInput]="''" (noticeMe)="addNaggingChildMessage($event)" [name]="user.name">
     </app-communication-child-io>
   </div>
 </div>
+
 <h1>Banana in a box [()] (two-way data binding)</h1>
 <div class="box">
   <a href="https://angular.io/guide/two-way-binding#how-two-way-binding-works">RTFM</a>

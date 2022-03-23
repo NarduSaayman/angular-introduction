@@ -26,7 +26,7 @@ export class CommunicationComponent implements OnInit {
   }
 
   addNaggingChildMessage(child: string) {
-    this.chat += `\n${child}: Pick me, pick me!\nOh hi, ${child}!\n\nParent: Who's next?`;
+    this.chat += `\n${child}: Pick me, pick me!\nParent: Oh hi, ${child}!\n\nParent: Who's next?`;
     this.response = `Oh hi, ${child}!`;
   }
 
