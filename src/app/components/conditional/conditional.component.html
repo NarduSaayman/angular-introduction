@@ -4,8 +4,9 @@
 
 <ng-container *ngIf="showTheGrads">
     <div 
-        *ngFor="let grad of grads" 
-        (click)="selectedGrad = grad" 
+        *ngFor="let grad of grads; index as i; trackBy: identifyGrad" 
+        [style.animation-delay]="0.2 * i + 's'"
+        (click)="selectedGrad = grad"
         class="grad">
         {{grad}}
     </div>

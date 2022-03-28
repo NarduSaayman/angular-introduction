@@ -1,0 +1,20 @@
+<p>The value of 2<sup>3</sup> is {{2 | exponentialStrength: 3}}</p>
+
+
+<input type="text" [(ngModel)]="filterText" />
+<div *ngFor="let grad of grads | filterGrads: filterText; trackBy: identifyGrad">{{grad.name}} {{grad.surname}}</div>
+
+
+<p>{{now | date}}</p>
+<p>{{now | date: 'long'}}</p>
+<p>{{now | date: 'medium'}}</p>
+<p>{{now | date: 'short'}}</p>
+<p>{{now | date: 'shortDate'}}</p>
+<p>{{now | date: 'dd/MMMM/yyyy, HH:mm:ss'}}</p>
+
+<p>{{decimal | number: '1.0-10'}}</p>
+<p>{{decimal | number: '4.0-10'}}</p>
+
+<p>{{percent | percent: '1.0-2'}}</p>
+
+<p>{{cost | currency: 'USD': 'ê'}}</p>

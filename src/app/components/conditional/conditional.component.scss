@@ -4,9 +4,22 @@
     padding: 0.5rem 1rem;
     border-radius: 4px;
     cursor: pointer;
+    transform: translateX(-100px);
+    opacity: 0;
+    animation: slide 0.5s forwards;
 
     transition: background-color 1s ease;
+
+
     &:hover {
         background-color: hsl(0, 0%, 80%);
+        transform: translateX(8px) !important;
+    }
+}
+
+@keyframes slide {
+    100% { 
+        transform: translateX(0); 
+        opacity: 1;
     }
 }

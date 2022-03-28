@@ -1,0 +1,12 @@
+<h1>Drivers</h1>
+<input type="text" [(ngModel)]="filterText" />
+<div class="container">
+    <app-child 
+        *ngFor="let driver of ((driverResponse$ | async)?.MRData?.DriverTable?.Drivers || []) | filterDrivers: filterText; trackBy: identifyDriver"
+        [driver]="driver" 
+        (driverSelected)="selectedDriver = $event">
+    </app-child>
+</div>
+
+
+<h2>Selected Driver: {{selectedDriver?.givenName || 'None'}}</h2>

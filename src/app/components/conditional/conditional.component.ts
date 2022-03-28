@@ -25,4 +25,8 @@ export class ConditionalComponent implements OnInit {
   ngOnInit() {
   }
 
+  identifyGrad(index: number, grad: string) {
+    return grad;
+  }
+
 }

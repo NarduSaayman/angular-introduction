@@ -14,6 +14,15 @@ import { CommunicationChildServiceComponent } from './components/communication/c
 import { HttpComponent } from './components/http/http.component';
 import { DriverComponent } from './components/driver/driver.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ExponentialStrengthPipe } from './pipes/exponential-strength.pipe';
+import { PipesComponent } from './components/pipes/pipes.component';
+import { FilterGradsPipe } from './pipes/filter-grads.pipe';
+import { ParentComponent } from './components/parent/parent.component';
+import { ChildComponent } from './components/child/child.component';
+import { FilterDriversPipe } from './pipes/filter-drivers.pipe';
+import { RoutingComponent } from './components/routing/routing.component';
+import { RouteChildAComponent } from './components/routing/route-child-a/route-child-a.component';
+import { RouteChildBComponent } from './components/routing/route-child-b/route-child-b.component';
 
 @NgModule({
   declarations: [
@@ -26,16 +35,24 @@ import { HttpClientModule } from '@angular/common/http';
     CommunicationChildBiabComponent,
     CommunicationChildServiceComponent,
     HttpComponent,
-    DriverComponent
+    DriverComponent,
+    PipesComponent,
+    ExponentialStrengthPipe,
+    FilterGradsPipe,
+    ParentComponent,
+    ChildComponent,
+    FilterDriversPipe,
+    RoutingComponent,
+    RouteChildAComponent,
+    RouteChildBComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [ExponentialStrengthPipe],
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

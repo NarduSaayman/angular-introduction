@@ -1,2 +1,2 @@
 <h1>Drivers</h1>
-<app-driver *ngFor="let driver of drivers" [driver]="driver"></app-driver>
+<app-driver *ngFor="let driver of drivers; trackBy: trackDriver" [driver]="driver"></app-driver>
