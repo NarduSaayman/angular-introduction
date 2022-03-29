@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CommunicationComponent } from './components/communication/communication.component';
 import { ConditionalComponent } from './components/conditional/conditional.component';
+import { DutyContainerComponent } from './components/duty-container/duty-container.component';
 import { EvaluatedComponent } from './components/evaluated/evaluated.component';
 import { HttpComponent } from './components/http/http.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'services', component: HttpComponent },
   { path: 'pipes', component: PipesComponent },
   { path: 'async', component: ParentComponent },
+  { path: 'ngrx', component: DutyContainerComponent },
   { 
     path: 'routing', 
     component: RoutingComponent, 
