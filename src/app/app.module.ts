@@ -23,6 +23,13 @@ import { FilterDriversPipe } from './pipes/filter-drivers.pipe';
 import { RoutingComponent } from './components/routing/routing.component';
 import { RouteChildAComponent } from './components/routing/route-child-a/route-child-a.component';
 import { RouteChildBComponent } from './components/routing/route-child-b/route-child-b.component';
+import { NZ_I18N } from 'ng-zorro-antd/i18n';
+import { en_US } from 'ng-zorro-antd/i18n';
+import { registerLocaleData } from '@angular/common';
+import en from '@angular/common/locales/en';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+registerLocaleData(en);
 
 @NgModule({
   declarations: [
@@ -51,8 +58,9 @@ import { RouteChildBComponent } from './components/routing/route-child-b/route-c
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
   ],
-  providers: [ExponentialStrengthPipe],
+  providers: [ExponentialStrengthPipe, { provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
