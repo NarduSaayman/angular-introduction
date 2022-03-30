@@ -5,14 +5,6 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 
-// Ant-d
-import { NzGridModule } from 'ng-zorro-antd/grid';
-import { NzTabsModule } from 'ng-zorro-antd/tabs';
-import { NzDividerModule } from 'ng-zorro-antd/divider';
-import { NzInputModule } from 'ng-zorro-antd/input';
-import { NzIconModule } from 'ng-zorro-antd/icon';
-import { NzSwitchModule } from 'ng-zorro-antd/switch';
-
 import { ExponentialStrengthPipe } from './pipes/exponential-strength.pipe';
 
 import { AppComponent } from './app.component';
@@ -40,6 +32,13 @@ import en from '@angular/common/locales/en';
 import { DutyContainerComponent } from './components/duty-container/duty-container.component';
 import { SelectedOpsComponent } from './components/duty-container/selected-ops/selected-ops.component';
 import { DutyControllerComponent } from './components/duty-container/duty-controller/duty-controller.component';
+import { SharedModule } from './shared/shared.module';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import * as fromOps from './store/ops.reducer';
+import { OpsEffects } from './store/ops.effects';
 
 registerLocaleData(en);
 
@@ -74,12 +73,18 @@ registerLocaleData(en);
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    NzGridModule,
-    NzTabsModule,
-    NzDividerModule,
-    NzInputModule,
-    NzIconModule,
-    NzSwitchModule
+
+    SharedModule,
+
+    StoreModule.forRoot({}, {}),
+
+    EffectsModule.forRoot([]),
+
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+
+    StoreModule.forFeature(fromOps.opsFeatureKey, fromOps.reducer),
+
+    EffectsModule.forFeature([OpsEffects])
   ],
   providers: [DatePipe, ExponentialStrengthPipe, { provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent],

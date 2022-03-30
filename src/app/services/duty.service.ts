@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { first, ReplaySubject } from 'rxjs';
+import { Observable } from 'rxjs';
 import { NationalCallSign, OpsMemberContact, OpsVehicleAttendance } from '../models/duty';
 
 @Injectable({
@@ -8,34 +8,18 @@ import { NationalCallSign, OpsMemberContact, OpsVehicleAttendance } from '../mod
 })
 export class DutyService {
 
-  nationalCallSigns$ = new ReplaySubject<NationalCallSign[]>(1);
-  opsContacts$ = new ReplaySubject<OpsMemberContact[]>(1);
-  dutyStatuses$ = new ReplaySubject<OpsVehicleAttendance[]>(1);
-
   constructor(private http: HttpClient) { }
 
-  getNationalCallSigns() {
-    this.http.get('assets/callsigns.json')
-      .pipe(first())
-      .subscribe((response: NationalCallSign[]) => {
-        this.nationalCallSigns$.next(response);
-      });
+  getNationalCallSigns(): Observable<NationalCallSign[]> {
+    return this.http.get<NationalCallSign[]>('assets/callsigns.json');
   }
 
-  getOpsContacts() {
-    this.http.get('assets/contacts.json')
-      .pipe(first())
-      .subscribe((response: OpsMemberContact[]) => {
-        this.opsContacts$.next(response);
-      });
+  getOpsContacts(): Observable<OpsMemberContact[]> {
+    return this.http.get<OpsMemberContact[]>('assets/contacts.json');
   }
 
-  getDutyStatuses() {
-    this.http.get('assets/duty.json')
-      .pipe(first())
-      .subscribe((response: OpsVehicleAttendance[]) => {
-        this.dutyStatuses$.next(response);
-      });
+  getDutyStatuses(): Observable<OpsVehicleAttendance[]> {
+    return this.http.get<OpsVehicleAttendance[]>('assets/duty.json');
   }
 
 }

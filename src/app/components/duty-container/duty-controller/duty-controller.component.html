@@ -51,7 +51,7 @@
     <p><i aria-hidden="true" nz-icon nzType="clock-circle" nzTheme="outline"></i>
       {{opsAttendanceWithContact?.attendance?.dutyDateTime | date: 'dd/MM/yyyy HH:mm:ss': '+0000' }}</p>
     <nz-switch [ngModel]="opsAttendanceWithContact.attendance && opsAttendanceWithContact.attendance.dutyStatusId === 1"
-      nzCheckedChildren="On" nzUnCheckedChildren="Off" (ngModelChange)="toggleDutyStatusSwitch($event)">
+      nzCheckedChildren="On" nzUnCheckedChildren="Off" (ngModelChange)="toggleDutyStatusSwitch(opsAttendanceWithContact, $event)">
     </nz-switch>
   </div>
 </div>

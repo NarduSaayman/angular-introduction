@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { NationalCallSign } from 'src/app/models/duty';
-import { DutyService } from 'src/app/services/duty.service';
+import { select, Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { CorrelatedOpsMember, NationalCallSign, OpsMemberContact, OpsVehicleAttendance } from 'src/app/models/duty';
+
+import { OpsState } from 'src/app/store/ops.reducer';
+import * as OpsActions from 'src/app/store/ops.actions';
+import * as OpsSelectors from 'src/app/store/ops.selectors';
+
 
 @Component({
   selector: 'app-duty-container',
@@ -9,22 +15,43 @@ import { DutyService } from 'src/app/services/duty.service';
 })
 export class DutyContainerComponent implements OnInit {
 
-  opsMembers: NationalCallSign[] = [];
-  selectedOpsMember: NationalCallSign = null;
+  isLoading$: Observable<boolean>;
+  opsMembers$: Observable<NationalCallSign[]>;
+  correlatedOpsMembers$: Observable<CorrelatedOpsMember[]>;
 
-  constructor(private dutyService: DutyService) { }
+  selectedOpsMember$: Observable<NationalCallSign>;
+  selectedCorrelatedOpsMember$: Observable<CorrelatedOpsMember>;
+
+  constructor(private opsStore: Store<OpsState>) { }
 
   ngOnInit(): void {
-    // Set up call
-    this.dutyService.getNationalCallSigns();
+    // Fetch errithang
+    this.opsStore.dispatch(OpsActions.getOpsMembers());
+    this.opsStore.dispatch(OpsActions.getOpsMembersContacts());
+    this.opsStore.dispatch(OpsActions.getOpsMembersDutyStatuses());
 
-    // Listen for changes
-    this.dutyService.nationalCallSigns$.subscribe(opsDudes => this.opsMembers = opsDudes);
-
+    // Listen to errithang
+    this.isLoading$ = this.opsStore.pipe(select(OpsSelectors.selectIsLoading));
+    this.opsMembers$ = this.opsStore.pipe(select(OpsSelectors.selectOpsMembers));
+    this.correlatedOpsMembers$ = this.opsStore.pipe(select(OpsSelectors.selectCorrelatedOpsMembers));
+    this.selectedOpsMember$ = this.opsStore.pipe(select(OpsSelectors.selectSelectedOpsMember));
+    this.selectedCorrelatedOpsMember$ = this.opsStore.pipe(select(OpsSelectors.selectSelectedCorrelatedOpsMember));
   }
 
   selectOpsMember(opsMember: NationalCallSign) {
-    this.selectedOpsMember = opsMember;
+    this.opsStore.dispatch(OpsActions.setSelectedOpsMember({opsMember}));
+  }
+
+  upsetDutyStatus(event: {correlatedOpsMember: CorrelatedOpsMember, onDuty: boolean}) {
+    const newAttendance: OpsVehicleAttendance = {
+      ...event?.correlatedOpsMember?.attendance,
+      dutyStatus: event.onDuty ? 'On Duty' : 'Off Duty',
+      dutyUser: 'tim',
+      dutyDateTime: new Date().toString(),
+      dutyUserId: 0,
+      dutyStatusId: event.onDuty ? 1 : 0
+    }
+    this.opsStore.dispatch(OpsActions.setOpsMemberDutyStatus({dutyStatus: newAttendance}))
   }
 
 }
