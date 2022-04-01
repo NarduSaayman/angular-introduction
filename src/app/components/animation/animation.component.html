@@ -1,0 +1,13 @@
+<p><a href="https://angular.io/guide/animations">animation</a> works!</p>
+
+
+<nav>
+  <button type="button" (click)="toggle()">Toggle Open/Close</button>
+  <button type="button" (click)="toggleRed()">Toggle Red/Not Red</button>
+</nav>
+
+<!-- <div [@triggerName]="expression">...</div>; -->
+<!-- expression evaluates to a defined animation state -->
+<div [@openClose]="isRed ? 'red' : isOpen ? 'open' : 'closed'" class="open-close-container">
+  <p>The box is now {{ isOpen ? 'Open' : 'Closed' }}!</p>
+</div>

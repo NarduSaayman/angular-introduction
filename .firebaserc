@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "angular-introduction-28676": {
+      "hosting": {
+        "angular-introduction": [
+          "angular-introduction-28676"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "angular-introduction-28676"
+  }
+}
